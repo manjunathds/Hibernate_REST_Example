@@ -25,7 +25,7 @@ public class EmployeAPI {
 
 	@GET
 	@Path("/get")
-	public Response getMsg(@QueryParam("empId") String empId) {
+	public Response getEmp(@QueryParam("empId") String empId) {
  
 		 
 		 DatabaseUtil dbUtil2 = new DatabaseUtil();
