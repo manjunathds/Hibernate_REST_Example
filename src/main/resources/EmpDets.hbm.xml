@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping>
+    <class name="com.sample.model.EmpDet" table="emp_det">
+        <id name="slNo" type="java.lang.Integer">
+            <column name="sl_no" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="empMstr" class="com.sample.model.EmpMstr" fetch="select">
+            <column name="emp_Id"  />
+        </many-to-one>
+        <property name="empCtc" type="big_decimal">
+            <column name="emp_ctc" precision="16" scale="2"  />
+        </property>
+        <property name="empPfAmt" type="big_decimal">
+            <column name="emp_pf_amt" precision="16" scale="2" />
+        </property>
+        <property name="empTaxAmt" type="big_decimal">
+            <column name="emp_tax_amt" precision="16" scale="2" />
+        </property>
+    </class>
+</hibernate-mapping>

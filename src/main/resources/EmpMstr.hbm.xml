@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping>
+    <class name="com.sample.model.EmpMstr" table="emp_mstr">
+        <id name="slNo" type="java.lang.Integer">
+            <column name="sl_no" />
+            <generator class="identity" />
+        </id>
+        <property name="empId" type="string">
+            <column name="emp_id" length="45" not-null="true"/>
+        </property>
+        <property name="empFirstName" type="string">
+            <column name="emp_firstNAME" length="20" />
+        </property>
+        <property name="empLastName" type="string">
+            <column name="emp_lastNAME" length="20" />
+        </property>
+        <property name="empDept" type="string">
+            <column name="emp_dept" length="45" />
+        </property>
+        <property name="empGroup" type="string"> 
+            <column name="emp_group" length="10" />
+        </property>
+        <property name="empType" type="string">
+            <column name="emp_type" length="20" />
+        </property>
+        <set name="empDet" table="emp_det" inverse="true" lazy="false" fetch="select" cascade="all,all-delete-orphan">
+            <key>
+                <column name="emp_Id" not-null="true" />
+            </key>
+            <one-to-many class="com.sample.model.EmpDet" />
+        </set>
+    </class>
+</hibernate-mapping>
